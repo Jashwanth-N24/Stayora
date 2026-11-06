@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAF4EB">
+  <title>Create Account — Stayora | Book • Stay • Relax</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      background: radial-gradient(circle at 50% 20%, rgba(234, 212, 183, 0.45) 0%, transparent 60%),
+                  linear-gradient(135deg, #FAF4EB 0%, #F5E8D6 100%);
+    }
+    .auth-container {
+      width: 100%;
+      max-width: 480px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 38px 34px;
+      box-shadow: var(--shadow-xl);
+      text-align: center;
+      position: relative;
+    }
+    .auth-logo-link {
+      display: inline-block;
+      margin-bottom: 18px;
+    }
+    .auth-logo {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      transition: transform var(--transition-fast);
+    }
+    .auth-logo:hover {
+      transform: scale(1.03);
+    }
+    .auth-header h1 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      margin: 0 0 8px 0;
+      color: var(--ink);
+    }
+    .auth-header p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 24px 0;
+    }
+    .auth-form {
+      text-align: left;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--ink-secondary);
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
+    }
+    .auth-submit-btn {
+      width: 100%;
+      height: 48px;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .auth-footer {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .auth-footer a {
+      color: var(--red);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .auth-footer a:hover {
+      text-decoration: underline;
+    }
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back-home:hover {
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body class="auth-page">
+
+  <div class="auth-container">
+    <a href="/" class="auth-logo-link" aria-label="Stayora Home">
+      <img src="/stayora-logo.jpg" alt="Stayora — Book • Stay • Relax" class="auth-logo">
+    </a>
+
+    <div class="auth-header">
+      <h1>Join Stayora</h1>
+      <p>Begin your journey with boutique stays or list your property</p>
+    </div>
+
+    <form class="auth-form" id="registerForm">
+      <div class="form-group">
+        <label for="nameInput">Full Name</label>
+        <input type="text" id="nameInput" name="name" required minlength="2" placeholder="e.g. Maya Patel" autocomplete="name" autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="emailInput">Email Address</label>
+        <input type="email" id="emailInput" name="email" required placeholder="name@example.com" autocomplete="email">
+      </div>
+
+      <div class="form-group">
+        <label for="passwordInput">Password (8+ characters)</label>
+        <input type="password" id="passwordInput" name="password" required minlength="8" placeholder="Choose a secure password" autocomplete="new-password">
+      </div>
+
+      <div class="form-group">
+        <label for="roleSelect">Account Type</label>
+        <select id="roleSelect" name="role">
+          <option value="user">👤 Traveller (Discover & Book Stays)</option>
+          <option value="manager">🏨 Hotel Partner (List & Promote Properties)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="primary auth-submit-btn" id="submitBtn">
+        Create Stayora Account
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      Already have an account? <a href="/login.html">Sign in here ↗</a>
+    </div>
+  </div>
+
+  <a href="/" class="back-home">
+    ← Back to Explore Stays
+  </a>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const $ = s => document.querySelector(s);
+    function toast(msg) {
+      const el = $('#toast');
+      if (!el) return;
+      el.textContent = msg;
+      el.className = 'toast';
+      setTimeout(() => el.className = '', 3400);
+    }
+
+    // Check if role is in URL (e.g. ?role=manager)
+    const params = new URLSearchParams(window.location.search);
+    const initialRole = params.get('role');
+    if (initialRole && (initialRole === 'user' || initialRole === 'manager')) {
+      $('#roleSelect').value = initialRole;
+    }
+
+    $('#registerForm').onsubmit = async e => {
+      e.preventDefault();
+      const btn = $('#submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Creating account...';
+
+      const name = $('#nameInput').value.trim();
+      const email = $('#emailInput').value.trim();
+      const password = $('#passwordInput').value;
+      const role = $('#roleSelect').value;
+
+      try {
+        const r = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password, role })
+        });
+        const data = await r.json();
+        if (!r.ok) throw new Error(data.error?.message || 'Failed to create account');
+
+        localStorage.setItem('stayora_token', data.token);
+        localStorage.setItem('stayora_user', JSON.stringify(data.user));
+
+        toast(`Account created! Welcome, ${data.user.name}!`);
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 800);
+      } catch (err) {
+        toast(err.message);
+        btn.disabled = false;
+        btn.textContent = 'Create Stayora Account';
+      }
+    };
+  </script>
+</body>
+</html>
+

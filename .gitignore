@@ -1,0 +1,4 @@
+node_modules/
+.env
+stayora.db-shm
+stayora.db-wal

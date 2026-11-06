@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAF3E8">
+  <title>Stayora — Find your kind of stay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <!-- EXPO FAST-TRACK CONTROLS (Practical 1-Click Role Switcher for Judges) -->
+  <aside class="expo-bar" id="expoBar" aria-label="Project Expo Quick Controls">
+    <div class="expo-container">
+      <div class="expo-badge">
+        <span class="expo-pulse"></span>
+        <strong>EXPO SHOWCASE 2026</strong>
+      </div>
+      <div class="expo-switchers">
+        <span class="expo-label">1-Click Role Switcher:</span>
+        <button class="expo-btn" id="expoUserBtn" title="Switch to Traveller role">
+          <span class="expo-icon">👤</span> Traveller <span class="expo-sub">(Aarav)</span>
+        </button>
+        <button class="expo-btn" id="expoManagerBtn" title="Switch to Hotel Partner role">
+          <span class="expo-icon">🏨</span> Hotel Partner <span class="expo-sub">(Mira)</span>
+        </button>
+        <button class="expo-btn" id="expoAdminBtn" title="Switch to Platform Admin role">
+          <span class="expo-icon">🛡️</span> Admin <span class="expo-sub">(Superuser)</span>
+        </button>
+      </div>
+      <div class="expo-actions">
+        <button class="expo-btn-pill" id="expoFraudBtn" title="View Dual-Layer dHash Photo Guard">
+          <span class="expo-icon">🔬</span> Photo Guard Tech
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- NAVIGATION -->
+  <header class="nav">
+    <a class="brand" href="/" aria-label="Stayora home">
+      <img src="/stayora-logo.jpg" alt="Stayora — Book • Stay • Relax" class="brand-logo-img">
+      <span class="brand-tag">BOUTIQUE STAYS</span>
+    </a>
+    
+    <nav class="nav-links">
+      <button class="navlink active" data-view="explore">Explore Stays</button>
+      <button class="navlink" data-view="bookings">My Bookings</button>
+      <button class="navlink" data-view="wishlist">
+        Saved <span class="badge" id="wishlistBadge">0</span>
+      </button>
+    </nav>
+
+    <div class="navright">
+      <button class="avatar" id="accountBtn">Sign in</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main id="app">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-chip">
+          <span class="star-icon">✳</span> Handcrafted Boutique Hospitality
+        </div>
+        <h1>Find your <em>kind</em><br>of stay.</h1>
+        <p class="hero-desc">
+          Thoughtfully curated stays, locally rooted. Protected against fraudulent listings with dual-layer perceptual hashing and transparent host verification.
+        </p>
+
+        <!-- QUICK DESTINATION CHIPS -->
+        <div class="quick-destinations" aria-label="Popular destinations">
+          <span class="quick-label">Trending destinations:</span>
+          <div class="dest-chips" id="destChips">
+            <button class="dest-chip" data-city="Goa">🏖️ Goa</button>
+            <button class="dest-chip" data-city="Jaipur">🏰 Jaipur</button>
+            <button class="dest-chip" data-city="Munnar">🌿 Munnar</button>
+            <button class="dest-chip" data-city="Udaipur">🌊 Udaipur</button>
+            <button class="dest-chip" data-city="Bengaluru">🌆 Bengaluru</button>
+            <button class="dest-chip" data-city="Mysuru">🏛️ Mysuru</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-stamp">
+          <div class="stamp-inner">
+            <span>STAYS</span>
+            <b>WELL</b>
+            <span>WITH YOU</span>
+            <span class="stamp-asterisk">✳</span>
+          </div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="stat-icon-wrap">🛡️</div>
+          <div>
+            <strong>100% Verified Stays</strong>
+            <small>SHA-256 + 64-bit dHash Protected</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH BAR -->
+    <section class="search-section">
+      <div class="searchbar">
+        <label class="search-field">
+          <span class="field-title">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Where to?
+          </span>
+          <input id="city" placeholder="City or property name..." autocomplete="off">
+        </label>
+        
+        <label class="search-field">
+          <span class="field-title">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            Check in
+          </span>
+          <input id="checkin" type="date">
+        </label>
+        
+        <label class="search-field">
+          <span class="field-title">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            Check out
+          </span>
+          <input id="checkout" type="date">
+        </label>
+        
+        <label class="search-field">
+          <span class="field-title">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Guests
+          </span>
+          <select id="guests">
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5 Guests</option>
+            <option value="6">6+ Guests</option>
+          </select>
+        </label>
+
+        <button class="primary searchbtn" id="searchBtn">
+          <span>Search Stays</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- SPONSORED / PROMOTED ADVERTISEMENT SPOTLIGHT BANNER -->
+    <section class="spotlight-container" id="spotlightContainer">
+      <!-- Populated dynamically by JavaScript if a hotel is promoted -->
+    </section>
+
+    <!-- CONTENT LAYOUT -->
+    <section class="layout">
+      <!-- FILTERS ASIDE -->
+      <aside class="filters">
+        <div class="filterhead">
+          <h3>Filters</h3>
+          <button id="clearFilters" class="reset-link">Reset all</button>
+        </div>
+
+        <div class="filter-group">
+          <label class="group-title" for="maxPrice">Nightly budget</label>
+          <div class="range-row">
+            <span class="currency-symbol">₹</span>
+            <input id="maxPrice" type="number" min="0" placeholder="e.g. 7000" step="500">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="group-title" for="minRating">Guest rating</label>
+          <select id="minRating">
+            <option value="">Any rating</option>
+            <option value="4">★ 4.0 & above (Very Good)</option>
+            <option value="4.5">★ 4.5 & above (Exceptional)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="group-title" for="roomType">Room collection</label>
+          <select id="roomType">
+            <option value="">All room tiers</option>
+            <option value="Classic room">Classic Room</option>
+            <option value="Garden suite">Garden Suite</option>
+            <option value="Family room">Family Room</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <div class="group-title">Key Amenities</div>
+          <div class="checks">
+            <label class="check-item"><input type="checkbox" value="wifi"> <span class="check-icon">📶</span> Wi-Fi</label>
+            <label class="check-item"><input type="checkbox" value="pool"> <span class="check-icon">🏊</span> Pool</label>
+            <label class="check-item"><input type="checkbox" value="parking"> <span class="check-icon">🚗</span> Parking</label>
+            <label class="check-item"><input type="checkbox" value="ac"> <span class="check-icon">❄️</span> AC</label>
+            <label class="check-item"><input type="checkbox" value="breakfast"> <span class="check-icon">☕</span> Breakfast</label>
+            <label class="check-item"><input type="checkbox" value="gym"> <span class="check-icon">🏋️</span> Gym</label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="group-title" for="sort">Sort results</label>
+          <select id="sort">
+            <option value="rating">Top guest rated</option>
+            <option value="price">Price: low to high</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- RESULTS SECTION -->
+      <div class="results">
+        <div class="results-head">
+          <div>
+            <span class="eyebrow">CURATED DISCOVERY</span>
+            <h2 id="resultsTitle">Stays worth the journey</h2>
+          </div>
+          <div class="results-meta">
+            <span id="resultCount" class="result-count">Loading stays...</span>
+          </div>
+        </div>
+
+        <div id="cards" class="cards" role="region" aria-live="polite">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST & SECURITY BANNER -->
+    <section class="trust-banner">
+      <div class="trust-item">
+        <div class="trust-icon">🛡️</div>
+        <div>
+          <h4>Perceptual dHash Shield</h4>
+          <p>64-bit difference hashing detects re-uploaded and recycled property photos across all listings.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div>
+          <h4>ACID Transaction Safety</h4>
+          <p>SQLite atomic transactions prevent race conditions and room overbooking in real-time.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🤖</div>
+        <div>
+          <h4>Dual-Mode AI Assistant</h4>
+          <p>Deterministic offline NLP heuristic engine with automatic Claude Haiku tool-calling fallback.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" aria-label="Stayora Home">
+          <img src="/stayora-logo.jpg" alt="Stayora — Book • Stay • Relax" class="footer-logo-img">
+        </a>
+        <p>Curated boutique stays with cryptographic trust and transparent architecture.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/login.html" style="text-decoration:none;"><button type="button">Sign In</button></a>
+        <a href="/register.html" style="text-decoration:none;"><button type="button">Register</button></a>
+        <a href="/login.html?role=manager" style="text-decoration:none;"><button type="button">Hotel Partner Portal</button></a>
+        <a href="/login.html?role=admin" style="text-decoration:none;"><button type="button">Admin Portal</button></a>
+        <button id="footerPhotoGuardBtn">Photo Guard Inspector</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Project Expo 2026 Edition — Designed for Excellence</span>
+      <span>Simulated demo payments • No real money charged</span>
+    </div>
+  </footer>
+
+  <!-- FLOATING AI ASSISTANT LAUNCHER -->
+  <button class="chat-launch" id="chatLaunch" aria-label="Open Stayora AI Assistant">
+    <span class="chat-sparkle">✳</span>
+    <span class="chat-launch-text">Ask Stayora AI</span>
+  </button>
+
+  <!-- MODAL / OVERLAY & TOAST NOTIFICATION CONTAINER -->
+  <div id="overlay"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
